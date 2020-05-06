@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\ClinicInfo;
+use App\Models\ClinicInfo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClinicRequest;
 use App\Http\Requests\UpdateClinicRequest;
-use App\Role;
-use App\User;
+use App\Models\Role;
+use App\Models\User;
 use Dotenv\Exception\InvalidFileException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
-use App\DoctorInfo;
+use App\Models\DoctorInfo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddClinitToDoctorRequest;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
-use App\OrderStatus;
-use App\Role;
-use App\User;
+use App\Models\OrderStatus;
+use App\Models\Role;
+use App\Models\User;
 use Barryvdh\Debugbar\LaravelDebugbar;
 use Dotenv\Exception\InvalidFileException;
 use Illuminate\Database\Eloquent\Builder;

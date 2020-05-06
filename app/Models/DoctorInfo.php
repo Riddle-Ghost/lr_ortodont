@@ -1,19 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class ClinicInfo extends Model
+class DoctorInfo extends Model
 {
-    protected $fillable = [
-        'legal_name',
-        'address',
-        'legal_address',
-        'requisites',
-        'photo'
-    ];
+    protected $fillable = [ 'position', 'birthday', 'description', 'photo' ];
 
     /**
      * Get the instance as an array.
