@@ -1,0 +1,1 @@
+<div class="modal" id="react-db-doctor-list-modal" data-clinic-id="{{ $clinicId }}" data-mode-edit="{{ $mode }}"></div>

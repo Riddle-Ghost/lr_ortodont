@@ -1,0 +1,528 @@
+/* popup */
+.popup {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  display: none;
+  overflow: auto;
+
+  @include z('popup');
+
+  /* однопальцевый скролл для iPad */
+  -webkit-overflow-scrolling: touch;
+
+  /* фикс для странностей в iPad */
+  > * {
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+  }
+
+  .overlay {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(244, 245, 252, .6);
+    display: none;
+    overflow-x: hidden;
+    @include z('popup-overlay');
+
+    &-close {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal {
+      position: relative;
+      left: 50vw;
+      border-radius: 3px;
+      background: $white;
+      display: none;
+      flex-direction: column;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateX(-50%);
+
+      &_center {
+        top: 50vh;
+        transform: translate(-50%, -50%);
+
+        /* добавляет сглаживание */
+        -webkit-image-rendering: pixelated;
+        -moz-image-rendering: pixelated;
+        image-rendering: pixelated;
+      }
+
+      /* восстановление доступа */
+      &#access_recovery {
+        width: 452px;
+        padding: 40px;
+        text-align: center;
+
+        .access-recovery {
+          h3 {
+            margin-bottom: 20px;
+          }
+
+          &__phone {
+            margin-bottom: 30px;
+
+            a {
+              color: $mainColor;
+              display: inline-flex;
+              align-items: center;
+
+              img {
+                height: 22px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          &__button {
+            justify-content: center;
+
+            a {
+              width: 165px;
+            }
+          }
+        }
+      }
+
+      /* реквизиты компании */
+      &#requisites {
+        width: 682px;
+        padding: 30px;
+
+        .requisites {
+          &-header {
+            border-bottom: 1px solid $paleGrey;
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title {
+              display: flex;
+              align-items: center;
+
+              img {
+                height: 22px;
+                margin-right: 10px;
+              }
+            }
+
+            &__close a {
+              font-weight: 600;
+              color: $red;
+            }
+          }
+
+          &-info {
+            h4 {
+              margin-bottom: 30px;
+            }
+
+            p {
+              opacity: .8;
+
+              &:not(:last-child) {
+                margin-bottom: 18px;
+              }
+            }
+          }
+        }
+      }
+
+      /* список врачей (для администраторов) */
+      &#react-db-doctor-list-modal {
+        width: 876px;
+        margin: 50px 0;
+        padding: 30px;
+
+        .docs {
+          &-header {
+            border-bottom: 1px solid $paleGrey;
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title {
+              display: flex;
+              align-items: center;
+
+              img {
+                height: 22px;
+                margin-right: 10px;
+              }
+            }
+
+            &__close a {
+              font-weight: 600;
+              color: $red;
+            }
+          }
+
+          &-main {
+            &__list {
+              margin-bottom: 30px;
+              display: flex;
+              flex-wrap: wrap;
+
+              &-item {
+                width: calc(50% - 10px);
+                border: 1px solid $paleGrey;
+                border-radius: 3px;
+                padding: 15px;
+                background: $white;
+                display: flex;
+
+                &:nth-child(odd):not(:last-child) {
+                  margin-right: 20px;
+                }
+
+                &:not(:nth-last-child(-n + 2)) {
+                  margin-bottom: 20px;
+                }
+
+                &-image {
+                  width: 122px;
+                  height: 122px;
+                  border-radius: 3px;
+                  margin-right: 20px;
+                  overflow: hidden;
+                  flex: 0 0 auto;
+
+                  img {
+                    height: 122px;
+                    object-fit: cover;
+                  }
+                }
+
+                &-specialty {
+                  margin-bottom: 10px;
+                  font-size: 10px;
+                  opacity: .8;
+                  display: flex;
+                  align-items: center;
+
+                  img {
+                    height: 12px;
+                    margin-right: 8px;
+                  }
+                }
+
+                &-name {
+                  margin: 0 50px 23px 0;
+                  font-weight: 600;
+                }
+
+                &-button {
+                  a {
+                    height: 38px;
+                    border: 1px solid $paleGrey;
+                    padding: 11px 7px 10px;
+                    background: $white;
+                    color: $accentColor;
+                  }
+
+                  &_active a {
+                    background: $red;
+                    color: $white;
+                  }
+                }
+              }
+            }
+
+            &__button {
+              display: fixed;
+              left: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+
+      /* оповещения (для врачей) */
+      &#alarm {
+        width: 602px;
+        padding: 30px;
+
+        .alarm {
+          &-header {
+            border-bottom: 1px solid $paleGrey;
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title {
+              position: relative;
+              font-weight: 600;
+
+              span.alarm {
+                position: absolute;
+                right: -25px;
+                top: calc(50% - 10px);
+                width: 20px;
+                height: 20px;
+                border: 2px solid $white;
+                border-radius: 50%;
+                background: $red;
+                color: $white;
+                font-size: 12px;
+                line-height: 20px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+
+            &__close a {
+              font-weight: 600;
+              color: $red;
+            }
+          }
+
+          &-main {
+            &__item {
+              border: 1px solid $paleGrey;
+              border-radius: 3px;
+              padding: 15px;
+
+              &:not(:last-child) {
+                margin-bottom: 10px;
+              }
+            }
+
+            &__id {
+              margin-bottom: 10px;
+              font-size: 10px;
+              opacity: .8;
+              display: flex;
+              align-items: center;
+
+              img {
+                margin-right: 8px;
+              }
+            }
+
+            &__name {
+              margin-bottom: 20px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      /* оповещения (для клиник) */
+      &#clinic_alarm {
+        width: 602px;
+        padding: 30px;
+
+        .clinic-alarm {
+          &-header {
+            border-bottom: 1px solid $paleGrey;
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title {
+              position: relative;
+              font-weight: 600;
+
+              span.alarm {
+                position: absolute;
+                right: -25px;
+                top: calc(50% - 10px);
+                width: 20px;
+                height: 20px;
+                border: 2px solid $white;
+                border-radius: 50%;
+                background: $red;
+                color: $white;
+                font-size: 12px;
+                line-height: 20px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+
+            &__close a {
+              font-weight: 600;
+              color: $red;
+            }
+          }
+
+          &-main {
+            &__item {
+              border: 1px solid $paleGrey;
+              border-radius: 3px;
+              padding: 15px;
+
+              &:not(:last-child) {
+                margin-bottom: 10px;
+              }
+            }
+
+            &__id {
+              margin-bottom: 10px;
+              font-size: 10px;
+              opacity: .8;
+              display: flex;
+              align-items: center;
+
+              img {
+                margin-right: 8px;
+              }
+            }
+
+            &__name {
+              margin-bottom: 20px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      /* стоимость лечения (для врачей и администраторов) */
+      &#pay, &#pay_edit {
+        width: 682px;
+        padding: 30px;
+
+        .pay-edit {
+          &-header {
+            border-bottom: 1px solid $paleGrey;
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title {
+              display: flex;
+              align-items: center;
+
+              img {
+                height: 22px;
+                margin-right: 10px;
+              }
+            }
+
+            &__close a {
+              font-weight: 600;
+              color: $red;
+            }
+          }
+
+          &-form {
+            .form-pay-edit {
+              flex-direction: column;
+
+              .form-line {
+                &:first-child {
+                  margin-bottom: 20px;
+                }
+
+                label {
+                  margin-bottom: 10px;
+                }
+
+                input {
+                  padding: 16px 15px 15px;
+                }
+              }
+
+              .button {
+                margin-top: 30px;
+              }
+            }
+          }
+        }
+      }
+
+      /* предварительный просмотр фото */
+      &#photo_preview {
+        width: 1010px;
+        margin: 50px 0;
+        padding: 30px;
+
+        .photo-preview {
+          &-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title {
+              display: flex;
+              align-items: center;
+
+              img {
+                height: 22px;
+                margin-right: 10px;
+              }
+            }
+
+            &__close a {
+              font-weight: 600;
+              color: $red;
+            }
+          }
+
+          &-main {
+            border-radius: 3px;
+            overflow: hidden;
+          }
+        }
+      }
+
+      /* внесение изменений в профиль клиники (для клиник) */
+      &#changes {
+        width: 452px;
+        padding: 40px;
+        text-align: center;
+
+        .changes {
+          h3 {
+            margin-bottom: 20px;
+          }
+
+          &__phone {
+            margin-bottom: 30px;
+
+            a {
+              color: $mainColor;
+              display: inline-flex;
+              align-items: center;
+
+              img {
+                height: 22px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          &__button {
+            justify-content: center;
+
+            a {
+              width: 165px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

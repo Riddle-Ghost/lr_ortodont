@@ -1,0 +1,31 @@
+/* doc list & patient list pages */
+#doc-list, #patient-list {
+  .container {
+    grid-template-rows: auto 1fr;
+
+    .content {
+      &-search-panel {
+        margin-bottom: 34px;
+        display: flex;
+
+        &__button {
+          margin-right: 20px;
+
+          a {
+            width: 243px;
+          }
+        }
+
+        &__search {
+          span.search {
+            background: transparent url('/image/icon/search.svg') no-repeat;
+          }
+        }
+      }
+
+      &-table__header-id {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

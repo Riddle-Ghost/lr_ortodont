@@ -1,0 +1,33 @@
+/* doc profile page */
+#doc-profile {
+  .container {
+    grid-template-rows: auto 1fr;
+
+    .content {
+      &-table__header, &-table__main {
+        &-name {
+          width: 270px;
+
+          &.content-table__main-mark {
+            width: 260px;
+          }
+        }
+
+        &-phone {
+          width: 270px;
+        }
+
+        &-patients-count {
+          width: 253px;
+        }
+      }
+    }
+  }
+}
+
+/* doc add & doc profile edit pages */
+#doc-add, #doc-profile-edit {
+  .container {
+    grid-template-rows: auto 1fr;
+  }
+}

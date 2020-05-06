@@ -1,0 +1,507 @@
+/* patient card page */
+#patient-card {
+  .container {
+    grid-template-rows: auto auto auto auto 1fr;
+
+    .content {
+      margin-bottom: 20px;
+
+      &-main {
+        border-bottom: 1px solid $paleGrey;
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+
+        &__title {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 21px;
+        }
+
+        &__info {
+          margin-bottom: 30px;
+          display: flex;
+
+          &-title {
+            margin-bottom: 6px;
+            font-weight: 600;
+          }
+
+          &-text {
+            opacity: .8;
+            display: flex;
+            align-items: center;
+
+            img {
+              height: 16.8px;
+              margin-right: 5px;
+            }
+          }
+        }
+
+        &__name {
+          width: 270px;
+        }
+
+        &__birthday {
+          width: 180px;
+        }
+
+        &__diagnosis {
+          width: 780px;
+          margin-bottom: 30px;
+
+          &-title {
+            margin-bottom: 7px;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 21px;
+          }
+
+          &-text {
+            opacity: .8;
+          }
+        }
+
+        &__precept {
+          padding: 15px;
+          background: $yellow;
+
+          &-title {
+            margin-bottom: 7px;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 21px;
+            display: flex;
+
+            img {
+              height: 22px;
+              margin-right: 8px;
+            }
+          }
+
+          &-text {
+            width: 780px;
+          }
+        }
+      }
+
+      &-select-clinic {
+        margin-bottom: 20px;
+
+        &__title {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 21px;
+        }
+
+        &__info {
+          border-radius: 3px;
+          padding: 11px 15px;
+          background: $backgroundColor_com;
+          display: flex;
+          align-items: center;
+        }
+
+        &__image {
+          width: 33px;
+          height: 33px;
+          border: 1px solid $paleGrey;
+          border-radius: 3px;
+          margin-right: 15px;
+          background: $white;
+          flex: 0 0 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            max-width: 29px;
+            max-height: 29px;
+          }
+        }
+
+        &__name {
+          margin-bottom: 7px;
+          font-weight: 600;
+        }
+
+        &__company {
+          opacity: .8;
+        }
+      }
+
+      &-pay-panel {
+        display: flex;
+        justify-content: space-between;
+
+        &__pay-method, &__pay-option, &__already-pay {
+          &-title {
+            margin-bottom: 7px;
+            font-weight: 600;
+          }
+
+          &-text {
+            opacity: .8;
+          }
+        }
+
+        &__pay-method {
+          width: 200px;
+        }
+
+        &__pay-option {
+          width: 400px;
+
+          &_clinic {
+            width: 470px;
+          }
+        }
+
+        &__already-pay {
+          width: 165px;
+          margin: 0 20px;
+
+          &_clinic {
+            margin: 0 20px 0 0;
+          }
+        }
+
+        &__button:last-child a {
+          width: 225px;
+        }
+      }
+    }
+
+    .plan {
+      grid-column: 1 / 13;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      padding: 30px;
+      background: $white;
+      box-shadow: 0 4px 32px rgba(15, 27, 97, .06);
+
+      &-header {
+        border-bottom: 1px solid $paleGrey;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 22px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &-main {
+        display: flex;
+
+        &__button {
+          width: 100%;
+
+          &:not(:last-child) {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+
+    .comments {
+      grid-column: 1 / 13;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      padding: 30px;
+      background: $white;
+      box-shadow: 0 4px 32px rgba(15, 27, 97, .06);
+
+      &-header {
+        border-bottom: 1px solid $paleGrey;
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 22px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &-main {
+        .form-comments {
+          border-bottom: 1px solid $paleGrey;
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          flex-direction: column;
+
+          label {
+            margin-bottom: 10px;
+          }
+
+          textarea {
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      &-list {
+        &__item {
+          min-height: 148px;
+          border-radius: 3px;
+          padding: 15px;
+          background: $backgroundColor_com;
+          font-weight: 600;
+          display: flex;
+
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+
+          &-image {
+            width: 81px;
+            height: 81px;
+            border-radius: 3px;
+            margin-right: 30px;
+            overflow: hidden;
+            flex: 0 0 auto;
+
+            img {
+              height: 81px;
+            }
+          }
+
+          &-group {
+            margin-right: 60px;
+            display: flex;
+            flex-direction: column;
+          }
+
+          &-name {
+            margin-bottom: 17px;
+            color: $linkTableColor;
+          }
+
+          &-comment {
+            opacity: .8;
+          }
+
+          &-date {
+            margin-right: 20px;
+            opacity: .6;
+          }
+
+          &-time {
+            opacity: .6;
+          }
+        }
+      }
+    }
+
+    .teeth {
+      grid-column: 1 / 13;
+      border-radius: 3px;
+      padding: 30px;
+      background: $white;
+      box-shadow: 0 4px 32px rgba(15, 27, 97, .06);
+
+      &-photos {
+        border-bottom: 1px solid $paleGrey;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+
+        &__title {
+          margin-bottom: 15px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 21px;
+        }
+
+        &__gallery {
+          display: flex;
+          flex-wrap: wrap;
+
+          &-item {
+            width: calc((100% - 20px)/3);
+            margin-right: 10px;
+
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+
+            &:not(:nth-last-child(-n + 3)) {
+              margin-bottom: 20px;
+            }
+
+            &-title {
+              margin-bottom: 10px;
+              font-weight: 600;
+            }
+
+            &-image {
+              position: relative;
+              border-radius: 3px;
+              background: $lightGrey;
+              overflow: hidden;
+            }
+
+            &-button {
+              position: absolute;
+              right: 15px;
+              bottom: 15px;
+            }
+          }
+        }
+      }
+
+      &-files {
+        border-bottom: 1px solid $paleGrey;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+
+        &__title {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 21px;
+        }
+
+        &__gallery {
+          display: flex;
+          flex-wrap: wrap;
+
+          &-item {
+            width: calc(50% - 10px);
+            margin-right: 20px;
+            border-radius: 3px;
+            padding: 15px;
+            background: $backgroundColor_com;
+            display: flex;
+
+            &:nth-child(even) {
+              margin-right: 0;
+            }
+
+            &:not(:last-child) {
+              margin-bottom: 20px;
+            }
+
+            &-image {
+              border-radius: 3px;
+              margin-right: 20px;
+              overflow: hidden;
+              flex: 0 0 auto;
+
+              image {
+                height: 150px;
+                object-fit: cover;
+              }
+            }
+
+            &-group {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+
+            &-title {
+              margin-bottom: 7px;
+              color: $linkTableColor;
+              font-weight: 600;
+            }
+
+            &-info {
+              opacity: .8;
+            }
+          }
+        }
+      }
+
+      &-other {
+        border-bottom: 1px solid $paleGrey;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+
+        &__title {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 21px;
+        }
+
+        &__info {
+          display: flex;
+
+          &-column {
+            display: flex;
+            flex-direction: column;
+
+            &:not(:last-child) {
+              margin: 0 80px 20px 0;
+            }
+          }
+
+          &-title {
+            margin-bottom: 7px;
+            font-weight: 600;
+          }
+
+          &-text {
+            opacity: .8;
+          }
+        }
+
+        &__teeth {
+          display: flex;
+
+          &:not(:last-child) {
+            margin-bottom: 30px;
+          }
+        }
+
+        &__tooth {
+          width: 50px;
+          height: 50px;
+          border: 1px solid $paleGrey;
+          border-radius: 3px;
+          background: $white;
+          color: $linkColor;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &-footer {
+        display: flex;
+
+        &__button {
+          &:first-child {
+            width: 100%;
+          }
+
+          &:not(:last-child) {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}

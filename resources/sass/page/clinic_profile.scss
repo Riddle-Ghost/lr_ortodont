@@ -1,0 +1,23 @@
+/* clinic profile page */
+#clinic-profile {
+  .container {
+    grid-template-rows: auto 1fr;
+
+    .content {
+      &-clinic-info__search-panel-button:last-child a {
+        width: 243px;
+      }
+
+      &-table__header-id {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+/* clinic add & clinic profile edit pages */
+#clinic-add, #clinic-profile-edit {
+  .container {
+    grid-template-rows: auto 1fr;
+  }
+}

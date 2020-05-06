@@ -1,0 +1,53 @@
+// пагинация
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__pager {
+    display: flex;
+    align-items: center;
+
+    &-prev, &-next {
+      display: flex;
+
+      a {
+        border: 1px solid $paleGrey;
+        border-radius: 3px;
+        padding: 18px 21px;
+        background: $white;
+
+        img {
+          width: 6px;
+          height: 12px;
+        }
+      }
+    }
+
+    &-prev {
+      margin-right: 38px;
+    }
+
+    &-next {
+      margin-left: 38px;
+    }
+
+    ul {
+      display: flex;
+
+      li:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__docs, &__all_pages {
+    color: rgba(22, 29, 66, .8);
+
+    span {
+      margin-left: 4px;
+      color: $mainColor;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+/* patient add page */
+#patient-add {
+  .container {
+    grid-template-rows: auto 1fr;
+
+    .content {
+      &-patient-form {
+        .form-patient {
+          flex-direction: column;
+
+          .form-group {
+            width: 100%;
+            flex-direction: column;
+
+            &:not(:last-child) {
+              margin-bottom: 30px;
+            }
+
+            &-text {
+              .form-line {
+                &:not(:last-child) {
+                  margin-bottom: 20px;
+                }
+
+                &__title {
+                  margin-bottom: 16px;
+                }
+              }
+            }
+
+            &__title {
+              margin-bottom: 10px;
+              font-weight: 600;
+            }
+
+            .form-line {
+              margin-bottom: 10px;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              &_long {
+                margin-bottom: 30px;
+              }
+
+              &_column {
+                flex-direction: column;
+              }
+
+              &__title {
+                margin-bottom: 10px;
+                font-weight: 600;
+              }
+
+              &__input {
+                position: relative;
+                width: calc((100% - 20px)/3);
+
+                &:not(:last-child) {
+                  margin-right: 10px;
+                }
+
+                span {
+                  &.user {
+                    background: transparent url('/image/icon/user.svg') no-repeat;
+                  }
+
+                  &.date {
+                    background: transparent url('/image/icon/calendar.svg') no-repeat;
+                  }
+                }
+              }
+
+              &__select {
+                width: calc((100% - 20px)/3);
+
+                &:not(:last-child) {
+                  margin-right: 10px;
+                }
+
+                span.male {
+                  background: transparent url('/image/icon/male.svg') no-repeat;
+                }
+
+                span.female {
+                  background: transparent url('/image/icon/female.svg') no-repeat;
+                }
+              }
+
+              .checkbox:not(:last-child) {
+                margin-right: 20px;
+              }
+
+              .button_upload label {
+                border: none;
+                background: $yellow;
+
+                span {
+                  color: $mainColor;
+                }
+              }
+            }
+
+            .form-image {
+              display: flex;
+              flex-wrap: wrap;
+
+              &__item {
+                width: calc((100% - 20px)/3);
+                margin-right: 10px;
+
+                &:nth-child(3n) {
+                  margin-right: 0;
+                }
+
+                &:not(:nth-last-child(-n + 3)) {
+                  margin-bottom: 30px;
+                }
+              }
+
+              &__box {
+                height: 243px;
+                border: 1px solid $paleGrey;
+                border-radius: 3px;
+                margin-bottom: 20px;
+                background: $lightGrey url('/image/icon/camera_empty.svg') center no-repeat;
+                overflow: hidden;
+              }
+            }
+
+            h3 {
+              margin-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
