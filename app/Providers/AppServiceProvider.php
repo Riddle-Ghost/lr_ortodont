@@ -13,7 +13,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
+        $this->app->bind( \App\Contracts\Payment::class, function($app) {
+
+            $paymentMerchant = ucfirst( mb_strtolower(config('payment.activeMerchant')) );
+            return $app->make(
+                '\\App\\Services\\Payment\\' . $paymentMerchant . 'Payment'
+            );
+        });
     }
 
     /**

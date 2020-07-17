@@ -13,7 +13,7 @@ class Order extends Model
      */
     public function status()
     {
-        return $this->belongsTo('App\OrderStatus');
+        return $this->belongsTo('App\Models\OrderStatus');
     }
 
     /**
@@ -23,7 +23,7 @@ class Order extends Model
      */
     public function clinic()
     {
-        return $this->belongsTo('App\User', 'clinic_id', 'id');
+        return $this->belongsTo('App\Models\User', 'clinic_id', 'id');
     }
 
     /**
@@ -33,7 +33,7 @@ class Order extends Model
      */
     public function doctor()
     {
-        return $this->belongsTo('App\User', 'doctor_id', 'id');
+        return $this->belongsTo('App\Models\User', 'doctor_id', 'id');
     }
 
     /**
@@ -43,7 +43,7 @@ class Order extends Model
      */
     public function payment()
     {
-        return $this->belongsTo('App\Payment');
+        return $this->belongsTo('App\Models\Payment');
     }
 
     /**
@@ -53,7 +53,7 @@ class Order extends Model
      */
     public function patient()
     {
-        return $this->belongsTo('App\Patient');
+        return $this->belongsTo('App\Models\Patient');
     }
 
     /**
@@ -63,6 +63,6 @@ class Order extends Model
      */
     public function models()
     {
-        return $this->hasMany('App\TeethModel');
+        return $this->hasMany('App\Models\TeethModel');
     }
 }

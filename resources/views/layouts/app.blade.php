@@ -19,7 +19,7 @@
         <div class="container">
             <a href="/" class="logo">
                 <div class="logo-title">ЭЛАЙНЕРЫ</div>
-                <div class="logo-desc">VISION SMILE</div>
+                <div class="logo-desc">BEST SMILE</div>
             </a>
             <nav class="header-menu">
                 <ul>
@@ -50,9 +50,9 @@
                     </a>
                 </div>
                 <div class="header-phone">
-                    <a href="tel:+78126605702" title="Получить консультацию">
+                    <a href="tel:+79999999" title="Получить консультацию">
                         <div class="header-phone__call">
-                            8 (812) 660-57-02
+                            8 (812) 999-99-99
                         </div>
                         <div class="header-phone__text">
                             Получить консультацию
@@ -68,8 +68,8 @@
     <footer>
         <div class="container">
             <div class="footer-info">
-                ООО "Клиника Доктора Зотовой"<br>
-                ИНН 7813561862, ОГРН 1137847176620
+                ООО "Клиника Вашего Доктора"<br>
+                ИНН 7222111111, ОГРН 112221111111
             </div>
         </div>
     </footer>

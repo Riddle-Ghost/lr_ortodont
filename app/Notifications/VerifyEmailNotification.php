@@ -2,11 +2,15 @@
 
 namespace App\Notifications;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use \Illuminate\Auth\Notifications\VerifyEmail as VerifyEmailBase;
 
-class VerifyEmail extends VerifyEmailBase
+class VerifyEmailNotification extends VerifyEmailBase implements ShouldQueue
 {
+    use Queueable;
+    
     protected $password;
 
     /**
@@ -35,8 +39,8 @@ class VerifyEmail extends VerifyEmailBase
         }
 
         return (new MailMessage)
-            ->from('no-reply@b2b.u-modno.ru', 'Улыбаться Модно') // TODO: Change address and name
-            ->subject('Подтверждение электронной почты') // TODO: Change subject
+            ->from('no-reply@b2b.url.ru', 'Title')
+            ->subject('Подтверждение электронной почты')
             ->view('email.verify', [
                 'verificationUrl'   => $verificationUrl,
                 'password'          => $this->password

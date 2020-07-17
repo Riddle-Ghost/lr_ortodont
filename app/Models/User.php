@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Notifications\VerifyEmail;
+use App\Notifications\VerifyEmailNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +19,12 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone'
+        'name',
+        'email',
+        'password',
+        'phone',
+        'role_id',
+        'email_verified_at',
     ];
 
     /**
@@ -47,7 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function role()
     {
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Models\Role');
     }
 
     /**
@@ -57,7 +62,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function clinicInfo()
     {
-        return $this->hasOne('App\ClinicInfo');
+        return $this->hasOne('App\Models\ClinicInfo');
     }
 
     /**
@@ -67,7 +72,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function doctorInfo()
     {
-        return $this->hasOne('App\DoctorInfo');
+        return $this->hasOne('App\Models\DoctorInfo');
     }
 
     /**
@@ -78,7 +83,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function clinics()
     {
         return $this->belongsToMany(
-            'App\User',
+            'App\Models\User',
             'doctor_clinic',
             'doctor_id',
             'clinic_id'
@@ -93,7 +98,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function doctors()
     {
         return $this->belongsToMany(
-            'App\User',
+            'App\Models\User',
             'doctor_clinic',
             'clinic_id',
             'doctor_id'
@@ -107,7 +112,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function ordersForClinic()
     {
-        return $this->hasMany('App\Order', 'clinic_id', 'id');
+        return $this->hasMany('App\Models\Order', 'clinic_id', 'id');
     }
 
     /**
@@ -117,7 +122,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function ordersForDoctor()
     {
-        return $this->hasMany('App\Order', 'doctor_id', 'id');
+        return $this->hasMany('App\Models\Order', 'doctor_id', 'id');
     }
 
     /**
@@ -127,6 +132,17 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendEmailVerificationNotification(string $password = null)
     {
-        $this->notify(new VerifyEmail($password));
+        $this->notify(new VerifyEmailNotification($password));
+    }
+
+    /**
+     * Scope a query to only include admins users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAdmins($query)
+    {
+        return $query->where('role_id', Role::ADMIN_ID);
     }
 }
